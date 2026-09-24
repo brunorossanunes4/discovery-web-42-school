@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Calculadora carente</title>
+    </head>
+
+    <body>
+
+        <div class="calculadora">
+
+            <input type="text" id="primeiro-valor">
+
+            <select name="operador" id="operador">
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+                <option>%</option>
+            </select>
+
+            <input type="text" id="segundo-valor">
+
+            <button id="botao">Try me!</button>
+
+        </div>
+
+
+        <script>
+            
+            let a;
+            let operador;
+            let b;
+            let resultado;
+
+            document.getElementById("botao").addEventListener("click", function() {
+                a = Number(document.getElementById('primeiro-valor').value);
+                operador = document.getElementById('operador').value;
+                b = Number(document.getElementById('segundo-valor').value);
+
+                if (Number.isInteger(a) && a>=0 && Number.isInteger(b) && b>=0) {
+                    
+                    if ((operador==='/' || operador==="%") && b===0) {
+                        alert("It's over 9000!");
+                        console.log("It's over 9000!");
+                    } else {
+                        switch (operador) {
+                        case "+": resultado = a + b; break;
+                        case "-": resultado = a - b; break;
+                        case "*": resultado = a * b; break;
+                        case "/": resultado = a / b; break;
+                        case "%": resultado = a % b; break;
+                        }
+
+                        alert(resultado);
+                        console.log(resultado);
+                        }
+                    
+
+                } else {
+                    alert("Error :(");
+                }
+            });
+        </script>
+
+
+        <script>
+            setInterval(function() {
+                alert("Please use me...");
+            }, 30000);
+        </script>
+
+
+
+    </body>
+
+</html>

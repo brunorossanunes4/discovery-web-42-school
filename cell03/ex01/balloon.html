@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>balloon</title>
+    </head>
+
+    <body style="display: flex; justify-content: center; align-items: center; height: 100vh">
+
+        <div id="balloon" style="background-color: red; width: 200px; height: 200px; border-radius: 50%"></div>
+
+        <script>
+            const balloon = document.getElementById("balloon");
+            let largura = 200;
+            let altura = 200;
+            let i = 999999;
+
+            balloon.addEventListener("click", function() {
+                largura += 10;
+                altura += 10;
+                if (altura <= 420) {
+                    balloon.style.width = largura + "px";
+                    balloon.style.height = altura + "px";
+                } else {
+                    balloon.style.width = "200px";
+                    balloon.style.height = "200px";
+                    largura = 200;
+                    altura = 200;
+                };
+
+                i++;
+                if ((i % 3) === 1) {
+                    balloon.style.backgroundColor = "green";
+                } else if ((i % 3) === 2) {
+                    balloon.style.backgroundColor = "blue";
+                } else {
+                    balloon.style.backgroundColor = "red";
+                };
+            })
+
+            balloon.addEventListener("mouseleave", function() {
+                largura -= 5;
+                altura -= 5;
+                if (altura >= 200) {
+                    balloon.style.width = largura + "px";
+                    balloon.style.height = altura + "px";
+                } else {
+                    balloon.style.width = "200px";
+                    balloon.style.height = "200px";
+                    largura = 200;
+                    altura = 200;
+                };
+
+                i--;
+                if ((i % 3) === 1) {
+                    balloon.style.backgroundColor = "green";
+                } else if ((i % 3) === 2) {
+                    balloon.style.backgroundColor = "blue";
+                } else {
+                    balloon.style.backgroundColor = "red";
+                };
+
+            })
+
+
+        </script>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>balloon (com jquery)</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh">
+    
+    <div id="balloon" style="background-color: red; width: 200px; height: 200px; border-radius: 50%"></div>
+
+        <script>
+            let largura = 200;
+            let altura = 200;
+            let i = 999999;
+
+            $("#balloon").on("click", function(){
+                largura += 10;
+                altura += 10;
+                if (altura <= 420) {
+                    $("#balloon").css("width", largura + "px");
+                    $("#balloon").css("height", altura + "px");
+                } else {
+                    $("#balloon").css("width", "200px");
+                    $("#balloon").css("height", "200px");
+                    largura = 200;
+                    altura = 200;
+                };
+
+                i++;
+                if ((i % 3) === 1) {
+                    $("#balloon").css("background-color", "green");
+                } else if ((i % 3) === 2) {
+                    $("#balloon").css("background-color", "blue");
+                } else {
+                    $("#balloon").css("background-color", "red");
+                };
+            })
+
+            $("#balloon").on("mouseleave", function() {
+                largura -= 5;
+                altura -= 5;
+                if (altura >= 200) {
+                    $("#balloon").css("width", largura + "px");
+                    $("#balloon").css("height", altura + "px");
+                } else {
+                    $("#balloon").css("width", "200px");
+                    $("#balloon").css("height", "200px");
+                    largura = 200;
+                    altura = 200;
+                };
+
+                i--;
+                if ((i % 3) === 1) {
+                    $("#balloon").css("background-color", "green");
+                } else if ((i % 3) === 2) {
+                    $("#balloon").css("background-color", "blue");
+                } else {
+                    $("#balloon").css("background-color", "red");
+                };
+
+            });
+
+
+        </script>
+
+</body>
+
+</html>
